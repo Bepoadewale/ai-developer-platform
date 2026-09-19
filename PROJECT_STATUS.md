@@ -22,7 +22,7 @@ FOUNDATION
 
 ## Known Failures
 
-- Production template references a skeleton that has not been executed; remote fetch blocked by DNS on 2026-09-19.
+- Production template references a skeleton that has not been executed. GitHub CI rerun is pending after changing the initialization workflow to install test tooling without packaging catalog/template directories.
 
 ## Current P0 Objective
 
