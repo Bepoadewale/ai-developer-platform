@@ -1,0 +1,4 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata: {name: legacy-api, description: Deliberately incomplete brownfield fixture}
+spec: {type: service, lifecycle: production, owner: team-checkout, system: commerce-platform}

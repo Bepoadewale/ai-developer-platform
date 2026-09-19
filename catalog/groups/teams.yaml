@@ -1,0 +1,9 @@
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata: {name: team-checkout, description: Owns checkout services}
+spec: {type: team, profile: {displayName: Team Checkout}, children: []}
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata: {name: team-ai, description: Owns AI services}
+spec: {type: team, profile: {displayName: Team AI}, children: []}

@@ -1,0 +1,15 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata: {name: ai-service, title: AI Service, description: OpenAI-compatible consumer with privacy/telemetry defaults}
+spec:
+  owner: team-ai
+  type: service
+  parameters:
+    - title: AI service details
+      required: [name, owner, cost_center, data_classification]
+      properties:
+        name: {type: string, pattern: '^[a-z][a-z0-9-]{2,48}$'}
+        owner: {type: string, enum: [team-ai]}
+        cost_center: {type: string}
+        data_classification: {type: string, enum: [internal, confidential]}
+  steps: []

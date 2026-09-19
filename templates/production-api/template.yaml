@@ -1,0 +1,20 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata: {name: production-api, title: Production Web API, description: FastAPI service with safe platform defaults}
+spec:
+  owner: team-checkout
+  type: service
+  parameters:
+    - title: Service details
+      required: [name, owner, system, criticality]
+      properties:
+        name: {title: Name, type: string, pattern: '^[a-z][a-z0-9-]{2,48}$'}
+        owner: {title: Owner, type: string, enum: [team-checkout, team-ai]}
+        system: {title: System, type: string, enum: [commerce-platform, ai-platform]}
+        criticality: {title: Criticality, type: string, enum: [tier-1, tier-2, tier-3]}
+  steps:
+    - id: fetch
+      name: Fetch skeleton
+      action: fetch:template
+      input: {url: ./skeleton, values: {name: '${{ parameters.name }}', owner: '${{ parameters.owner }}'}}
+  output: {text: "Local scaffold created; registration is enabled when Backstage is running."}

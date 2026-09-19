@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: checkout-api
+  description: Checkout API generated from production-api golden path
+  annotations: {platform.example/golden-path-version: "1.0", platform.example/slo-profile: tier-2-api, platform.example/cost-center: commerce}
+spec:
+  type: service
+  lifecycle: production
+  owner: team-checkout
+  system: commerce-platform
+  dependsOn: [resource:default/postgres-checkout, resource:default/redis-checkout]

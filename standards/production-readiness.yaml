@@ -1,0 +1,14 @@
+version: "1.0"
+mandatory:
+  - owner
+  - system
+  - slo_profile
+  - health_readiness
+  - resource_limits
+  - docs
+  - ci_configured
+ai_additional:
+  - model_endpoint
+  - prompt_logging_disabled
+  - token_usage_telemetry
+  - bounded_retries
