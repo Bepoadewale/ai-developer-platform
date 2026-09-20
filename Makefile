@@ -8,6 +8,7 @@ endif
 install:
 	corepack enable
 	yarn install --immutable
+	./scripts/install-python-tools.sh
 
 bootstrap-local: install
 	./scripts/start-local.sh
@@ -38,7 +39,8 @@ verify:
 	$(MAKE) lint
 	$(MAKE) typecheck
 	$(MAKE) test
-	python3 -m pytest -q
+	.local/tools-venv/bin/python -m pytest -q
+	.local/tools-venv/bin/python -m ruff check tests
 
 typecheck:
 	yarn tsc:full
