@@ -30,3 +30,6 @@ P0 items block PORTFOLIO COMPLETE — LOCAL-FIRST SCOPE. Do not select P1/P2 pol
 # P3 — Future / Cloud / Hardware
 
 - External IdP, enterprise catalog providers and MCP read interface.
+# Clean-Room Completion Blocker
+
+- [ ] Pass the full clean-room reproducibility gate: deterministic bootstrap, smoke, golden-path and drift demos, safe cleanup, a second clean bootstrap, and recorded evidence. Break this into focused P0 work only during the scheduled week.
