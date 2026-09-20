@@ -19,7 +19,7 @@ fi
 image="ai-developer-platform/billing-api:local"
 container="ai-developer-platform-billing-api"
 port=18080
-docker build -t "${image}" "${repo_root}/generated/billing-api"
+docker build --quiet -t "${image}" "${repo_root}/generated/billing-api"
 docker rm -f "${container}" >/dev/null 2>&1 || true
 docker run -d --name "${container}" --read-only --tmpfs /tmp --security-opt no-new-privileges --cap-drop ALL -p "${port}:8000" "${image}" >/dev/null
 cleanup() {
