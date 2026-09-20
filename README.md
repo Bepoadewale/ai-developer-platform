@@ -6,7 +6,7 @@ It is deliberately an experience layer—not an infrastructure bypass. Developer
 
 ## What works locally
 
-Status: **LOCAL END-TO-END VALIDATED**. The primary path and clean-room reproducibility have executed locally; the branch is awaiting GitHub CI before it can be marked **PORTFOLIO COMPLETE — LOCAL-FIRST SCOPE**.
+Status: **PORTFOLIO COMPLETE — LOCAL-FIRST SCOPE**. The primary path, clean-room reproducibility, and required GitHub CI have executed. Production/cloud adapters remain explicitly unexecuted.
 
 | Capability | Status | Evidence |
 | --- | --- | --- |

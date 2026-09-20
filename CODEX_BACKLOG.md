@@ -4,11 +4,11 @@ PORTFOLIO COMPLETE — LOCAL-FIRST SCOPE
 
 # Current Completion Blockers
 
-- Obtain green GitHub Actions checks for the Week 2 branch. Do not promote maturity until that evidence exists.
+- None for `PORTFOLIO COMPLETE — LOCAL-FIRST SCOPE`.
 
 # P0 — Required for Portfolio Claim
 
-- [ ] Confirm green required GitHub CI and update the status/PR completion evidence.
+- No open P0 items. Preserve the completion evidence boundary when accepting future work.
 
 # P1 — Production Hardening
 

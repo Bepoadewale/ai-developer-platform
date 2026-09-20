@@ -19,4 +19,4 @@
 
 ## Evidence boundary
 
-`PORTFOLIO COMPLETE — LOCAL-FIRST SCOPE` remains pending only for green GitHub CI on the current branch. Cloud, GitHub, identity-provider, and Kubernetes claims remain explicitly unexecuted.
+`PORTFOLIO COMPLETE — LOCAL-FIRST SCOPE` is supported by two clean-room cycles and GitHub Actions run `35523774212` (green). Cloud, GitHub publishing, identity-provider, and Kubernetes claims remain explicitly unexecuted.

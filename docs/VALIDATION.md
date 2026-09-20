@@ -58,6 +58,10 @@ Observed results:
 - Metrics endpoint exposed generated-service, template-publication, and scorecard evaluation metrics.
 - Final cleanup again removed only project-owned resources; no generated state, local database, local runtime directory, or named project container remained.
 
+## Hosted CI
+
+GitHub Actions run [`35523774212`](https://github.com/Bepoadewale/ai-developer-platform/actions/runs/35523774212) passed on 2026-09-20. It executed Node 24 dependency installation, lint, TypeScript, the full Jest suite, Python tests, and Ruff.
+
 ## Known validation boundary
 
-GitHub Actions has not yet run on the current branch. Its configured checks are Node 24 dependency installation, lint, TypeScript, full Jest suite, Python contract tests, and Ruff. Green hosted CI is still required before this repository may be marked `PORTFOLIO COMPLETE — LOCAL-FIRST SCOPE`.
+GitHub publishing, enterprise identity, remote CI evidence as a scorecard input, Kubernetes deployment, external catalog providers, and cloud platform APIs remain unexecuted production adapters. They are not part of this local-first completion claim.

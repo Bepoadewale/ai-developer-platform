@@ -2,7 +2,7 @@
 
 ## Current Maturity
 
-LOCAL END-TO-END VALIDATED
+PORTFOLIO COMPLETE — LOCAL-FIRST SCOPE
 
 ## Maturity Model
 
@@ -33,15 +33,15 @@ LOCAL END-TO-END VALIDATED
 
 ## Known Failures
 
-- No known local functional failure. GitHub Actions has not yet run on the current branch.
+- No known local functional failure.
 
 ## Current P0 Objective
 
-Push the Week 2 branch, obtain green required GitHub checks, and then update this status to `PORTFOLIO COMPLETE — LOCAL-FIRST SCOPE` only if CI confirms the same checks.
+Maintain the validated local workflow; do not introduce a new claim without executable evidence.
 
 ## Completion Blockers
 
-- Required GitHub CI has not yet passed for the current branch.
+- None for the local-first completion scope.
 
 ## Explicitly Unexecuted Production Adapters
 
@@ -52,10 +52,11 @@ Push the Week 2 branch, obtain green required GitHub checks, and then update thi
 - Clean-room cycle 1 and 2 on macOS/Docker Desktop; exact commands/results: `docs/VALIDATION.md`.
 - `make e2e`: 2 passed.
 - `make verify`: TypeScript, lint, 4 Jest tests, 2 Python tests, and Ruff passed.
+- GitHub Actions run `35523774212`: passed (Node install, lint, TypeScript, full Jest suite, Python tests, Ruff).
 
 ## Last Updated
 
-2026-09-20, implementation commit `4fddf37` (documentation/CI update pending).
+2026-09-20, local implementation commit `4fddf37`; hosted CI run `35523774212` passed.
 
 ## Clean-Room Reproducibility
 

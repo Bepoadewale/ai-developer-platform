@@ -15,7 +15,7 @@ Do not check an item from code, YAML, mocks, or static validation alone. Record 
 - [x] Template/catalog/scorecard metrics or audit signals run where claimed.
 - [x] A broken template or invalid metadata failure path is executed and reported.
 - [x] `make demo`/equivalent reproduces Developer → Backstage → Create → runnable service → Catalog/docs → scorecard.
-- [ ] Unit, integration, local-E2E, and relevant failure tests pass; required CI is green.
+- [x] Unit, integration, local-E2E, and relevant failure tests pass; required CI is green.
 - [x] README and implementation status distinguish executed local behavior from simulated, static-only, and production adapters.
 
 ## Maturity Levels
