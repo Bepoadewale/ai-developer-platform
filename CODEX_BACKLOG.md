@@ -4,32 +4,24 @@ PORTFOLIO COMPLETE — LOCAL-FIRST SCOPE
 
 # Current Completion Blockers
 
-- Run the Backstage frontend/backend with Catalog entities loaded locally.
-- Execute both core Scaffolder golden paths and validate generated services.
-- Demonstrate catalog registration, TechDocs, evidence-based scorecards, legacy failure, and drift.
+- None for `PORTFOLIO COMPLETE — LOCAL-FIRST SCOPE`.
 
 # P0 — Required for Portfolio Claim
 
-P0 items block PORTFOLIO COMPLETE — LOCAL-FIRST SCOPE. Do not select P1/P2 polish while they remain.
-
-- Verify current Backstage release/frontend system and scaffold app.
-- Load existing catalog entities into live Catalog.
-- Complete Production API skeleton and execute it through Scaffolder local publishing.
-- Run generated FastAPI tests and register component; enable local docs/TechDocs if practical.
-- Implement scorecard backend/entity UI and prove golden-path compliance, legacy failures and drift regression.
-- Execute AI Service golden path with AI-specific checks.
+- No open P0 items. Preserve the completion evidence boundary when accepting future work.
 
 # P1 — Production Hardening
 
-- Readiness history/waivers, audit/metrics, RBAC and template contract CI.
+- Add enterprise identity/RBAC and replace local guest identity for non-demo environments.
+- Publish generated services through a reviewed Git provider integration instead of the local workspace publisher.
+- Add scorecard evidence adapters for remote CI and deployed-runtime health.
+- Add waiver lifecycle only if the platform chooses to claim waiver support.
 
 # P2 — Enhancements
 
-- GitHub publishing and self-service platform adapters.
+- Add richer adoption/readiness dashboards and catalog ownership reporting.
+- Integrate generated services with Project 1 platform APIs through stable contracts.
 
 # P3 — Future / Cloud / Hardware
 
-- External IdP, enterprise catalog providers and MCP read interface.
-# Clean-Room Completion Blocker
-
-- [ ] Pass the full clean-room reproducibility gate: deterministic bootstrap, smoke, golden-path and drift demos, safe cleanup, a second clean bootstrap, and recorded evidence. Break this into focused P0 work only during the scheduled week.
+- External IdP, GitHub/GitLab provider, Kubernetes deployment, and enterprise catalog providers.

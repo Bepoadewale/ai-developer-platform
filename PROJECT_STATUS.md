@@ -2,61 +2,62 @@
 
 ## Current Maturity
 
-FOUNDATION
+PORTFOLIO COMPLETE — LOCAL-FIRST SCOPE
 
 ## Maturity Model
 
 `FOUNDATION` → `PARTIALLY VALIDATED` → `LOCAL END-TO-END VALIDATED` → `PORTFOLIO COMPLETE — LOCAL-FIRST SCOPE`.
 
-The final state requires executed local evidence, not merely working contracts or unit tests.
-
 ## Executed and Verified
 
-- Catalog/template/standards contract tests.
+- Current Backstage frontend/backend, SQLite Catalog, Scaffolder, and templates run locally.
+- Production API and AI Service templates generated two real FastAPI services through live Scaffolder tasks.
+- Generated components and API entities reconciled into Catalog with owner/system relationships.
+- Generated services passed `pytest`; the Production API image ran with non-root, read-only, no-new-privileges, and dropped-capability options and returned `/health` and `/ready`.
+- TechDocs built and served `billing-api` documentation locally.
+- Evidence-based scorecards produced `READY` for generated services and `BLOCKED` for `legacy-api`; the entity-page readiness card passed Playwright.
+- Drift, invalid-template input, metrics, two clean-room bootstraps, and two safe project-scoped cleanups executed locally.
 
 ## Implemented but Not End-to-End Validated
 
-- Backstage-format catalog entities and template descriptors.
+- GitHub publishing from templates and remote CI-status evidence.
+- Enterprise identity/RBAC and external platform API adapters.
 
 ## Simulated
 
-- Scorecard fixture outcomes.
+- None in the local core story. The generated deployment manifests are static artifacts; no Kubernetes deployment is claimed.
 
 ## Architecture / Contracts Only
 
-- Backstage frontend/backend, Catalog, Scaffolder execution, TechDocs, scorecard backend/UI.
+- External catalog providers, remote Git hosting integration, platform-control-plane integration, and enterprise identity policy.
 
 ## Known Failures
 
-- Production template references a skeleton that has not been executed. GitHub CI rerun is pending after changing the initialization workflow to install test tooling without packaging catalog/template directories.
+- No known local functional failure.
 
 ## Current P0 Objective
 
-Start a current Backstage app and execute the Production Web API golden path locally.
+Maintain the validated local workflow; do not introduce a new claim without executable evidence.
 
 ## Completion Blockers
 
-- Backstage frontend/backend, Catalog, and entities have not run together locally.
-- Neither Production API nor AI Service template has executed through Scaffolder into a runnable service.
-- Catalog registration, TechDocs, evidence-based scorecard UI/backend, drift, and legacy-service demonstrations are unexecuted.
+- None for the local-first completion scope.
 
 ## Explicitly Unexecuted Production Adapters
 
-- Enterprise identity provider, GitHub publishing, external catalog providers, and production platform APIs.
+- Enterprise OIDC/RBAC, GitHub publishing, remote CI evidence, Kubernetes deployment, external catalog providers, and cloud platform APIs.
 
 ## Last Validation
 
-- `../ai-platform-control-plane/.venv/bin/python -m pytest -q`: 2 passed.
+- Clean-room cycle 1 and 2 on macOS/Docker Desktop; exact commands/results: `docs/VALIDATION.md`.
+- `make e2e`: 2 passed.
+- `make verify`: TypeScript, lint, 4 Jest tests, 2 Python tests, and Ruff passed.
+- GitHub Actions run `35523774212`: passed (Node install, lint, TypeScript, full Jest suite, Python tests, Ruff).
 
 ## Last Updated
 
-2026-09-19, baseline `0df8ad7`.
+2026-09-20, local implementation commit `4fddf37`; hosted CI run `35523774212` passed.
 
 ## Clean-Room Reproducibility
 
-**Status: NOT YET VALIDATED**
-
-Completion requires two executed clean-room cycles: clean start → bootstrap → smoke → primary demo
-→ failure/security demo → validation → project-scoped cleanup, followed by a second clean bootstrap
-and demo. Existing developer state is not evidence. This status must be `VALIDATED` before
-`PORTFOLIO COMPLETE — LOCAL-FIRST SCOPE` is allowed.
+**Status: VALIDATED.** Two clean-state bootstrap → smoke → primary-demo cycles passed, with project-scoped cleanup verified between and after them. See `docs/VALIDATION.md`.
