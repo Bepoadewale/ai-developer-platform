@@ -31,3 +31,15 @@ test('App should render the welcome page', async ({ page }) => {
     page.getByRole('link', { name: 'APIs', exact: true }),
   ).toBeVisible();
 });
+
+test('generated component renders its evidence-based production readiness card', async ({ page }) => {
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Enter' }).click();
+  const billingApi = page.getByRole('link', { name: 'billing-api', exact: true });
+  await expect(billingApi).toBeVisible();
+  await billingApi.click();
+
+  await expect(page.getByText('Production readiness')).toBeVisible();
+  await expect(page.getByText('READY', { exact: true })).toBeVisible();
+  await expect(page.getByText(/10\/10 controls passed/)).toBeVisible();
+});

@@ -23,11 +23,20 @@ create_task() {
 test -d "${repo_root}/generated/billing-api" || create_task '{"templateRef":"template:default/production-api","values":{"name":"billing-api","owner":"team-checkout","system":"commerce-platform","criticality":"tier-2"}}'
 test -d "${repo_root}/generated/recommendation-api" || create_task '{"templateRef":"template:default/ai-service","values":{"name":"recommendation-api","owner":"team-ai","cost_center":"cc-ai-002","data_classification":"confidential"}}'
 
-for _ in $(seq 1 30); do
-  status=$(curl -fsS -H "Authorization: Bearer ${token}" http://localhost:7007/api/platform-scorecards/entities/component/default/billing-api | jq -r '.status')
+status=NOT_FOUND
+for _ in $(seq 1 45); do
+  status=$(curl -sS -H "Authorization: Bearer ${token}" http://localhost:7007/api/platform-scorecards/entities/component/default/billing-api 2>/dev/null | jq -r '.status // "NOT_FOUND"' 2>/dev/null || echo NOT_FOUND)
   [[ "${status}" == READY ]] && break
   sleep 1
 done
 test "${status}" = READY
+for _ in $(seq 1 45); do
+  if curl -sS -H "Authorization: Bearer ${token}" http://localhost:7007/api/platform-scorecards/entities/component/default/recommendation-api | jq -e '.status == "READY"' >/dev/null 2>&1; then
+    break
+  fi
+  sleep 1
+done
 curl -fsS -H "Authorization: Bearer ${token}" http://localhost:7007/api/platform-scorecards/entities/component/default/recommendation-api | jq -e '.status == "READY"' >/dev/null
+"${repo_root}/scripts/validate-generated-services.sh"
+"${repo_root}/scripts/build-techdocs.sh"
 echo 'Golden path passed: generated Production API and AI service are registered and scorecard-ready.'
