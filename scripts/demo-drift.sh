@@ -2,8 +2,12 @@
 set -euo pipefail
 
 repo_root=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
-"${repo_root}/scripts/demo-golden-path.sh"
 descriptor="${repo_root}/generated/billing-api/catalog-info.yaml"
+if [[ ! -f "${descriptor}" ]]; then
+  "${repo_root}/scripts/demo-golden-path.sh"
+else
+  "${repo_root}/scripts/smoke.sh"
+fi
 backup=$(mktemp)
 cp "${descriptor}" "${backup}"
 trap 'cp "${backup}" "${descriptor}"; rm -f "${backup}"' EXIT
