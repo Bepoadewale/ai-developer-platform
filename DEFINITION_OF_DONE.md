@@ -24,3 +24,11 @@ Do not check an item from code, YAML, mocks, or static validation alone. Record 
 - **PARTIALLY VALIDATED:** one or more important integrations have run, but the central story is incomplete.
 - **LOCAL END-TO-END VALIDATED:** primary success path runs locally; material failure, security, recovery, or observability evidence remains.
 - **PORTFOLIO COMPLETE — LOCAL-FIRST SCOPE:** every gate above has executed evidence. Do not use this label without the suffix unless production/cloud validation exists.
+
+# Clean-Room Reproducibility Gate
+
+`PORTFOLIO COMPLETE — LOCAL-FIRST SCOPE` requires two executed clean-room cycles: clone → install → bootstrap real Backstage/Catalog/Scaffolder → smoke → golden-path demo (runnable, tested service, catalog registration, scorecard) → drift/noncompliance demo → validation → project-scoped cleanup → second clean bootstrap/demo. Planned commands: `make install`, `make bootstrap-local`, `make smoke`, `make demo-golden-path`, `make demo-drift`, `make verify`, `make clean-local`.
+
+- [ ] Clean clone/bootstrap has no hidden state; primary and failure demos pass.
+- [ ] Cleanup removes only this project and unrelated resources survive.
+- [ ] Post-cleanup absence and second bootstrap/demo are recorded in `docs/VALIDATION.md`.
