@@ -1,4 +1,16 @@
+# Completion Target
+
+PORTFOLIO COMPLETE — LOCAL-FIRST SCOPE
+
+# Current Completion Blockers
+
+- Run the Backstage frontend/backend with Catalog entities loaded locally.
+- Execute both core Scaffolder golden paths and validate generated services.
+- Demonstrate catalog registration, TechDocs, evidence-based scorecards, legacy failure, and drift.
+
 # P0 — Required for Portfolio Claim
+
+P0 items block PORTFOLIO COMPLETE — LOCAL-FIRST SCOPE. Do not select P1/P2 polish while they remain.
 
 - Verify current Backstage release/frontend system and scaffold app.
 - Load existing catalog entities into live Catalog.

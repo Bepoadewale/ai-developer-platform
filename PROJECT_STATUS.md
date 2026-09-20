@@ -4,6 +4,12 @@
 
 FOUNDATION
 
+## Maturity Model
+
+`FOUNDATION` → `PARTIALLY VALIDATED` → `LOCAL END-TO-END VALIDATED` → `PORTFOLIO COMPLETE — LOCAL-FIRST SCOPE`.
+
+The final state requires executed local evidence, not merely working contracts or unit tests.
+
 ## Executed and Verified
 
 - Catalog/template/standards contract tests.
@@ -27,6 +33,16 @@ FOUNDATION
 ## Current P0 Objective
 
 Start a current Backstage app and execute the Production Web API golden path locally.
+
+## Completion Blockers
+
+- Backstage frontend/backend, Catalog, and entities have not run together locally.
+- Neither Production API nor AI Service template has executed through Scaffolder into a runnable service.
+- Catalog registration, TechDocs, evidence-based scorecard UI/backend, drift, and legacy-service demonstrations are unexecuted.
+
+## Explicitly Unexecuted Production Adapters
+
+- Enterprise identity provider, GitHub publishing, external catalog providers, and production platform APIs.
 
 ## Last Validation
 
