@@ -13,8 +13,25 @@ spec:
         system: {title: System, type: string, enum: [commerce-platform, ai-platform]}
         criticality: {title: Criticality, type: string, enum: [tier-1, tier-2, tier-3]}
   steps:
-    - id: fetch
+    - id: fetchBase
       name: Fetch skeleton
       action: fetch:template
-      input: {url: ./skeleton, values: {name: '${{ parameters.name }}', owner: '${{ parameters.owner }}'}}
-  output: {text: "Local scaffold created; registration is enabled when Backstage is running."}
+      input:
+        url: ./skeleton
+        values:
+          name: ${{ parameters.name }}
+          owner: ${{ parameters.owner }}
+          system: ${{ parameters.system }}
+          criticality: ${{ parameters.criticality }}
+    - id: publishLocal
+      name: Persist locally
+      action: platform:publishLocal
+      input:
+        name: ${{ parameters.name }}
+  output:
+    links:
+      - title: Generated service workspace
+        url: file://${{ steps.publishLocal.output.servicePath }}
+      - title: Open in catalog
+        icon: catalog
+        entityRef: ${{ steps.publishLocal.output.entityRef }}

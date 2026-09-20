@@ -12,4 +12,26 @@ spec:
         owner: {type: string, enum: [team-ai]}
         cost_center: {type: string}
         data_classification: {type: string, enum: [internal, confidential]}
-  steps: []
+  steps:
+    - id: fetchBase
+      name: Fetch AI service skeleton
+      action: fetch:template
+      input:
+        url: ./skeleton
+        values:
+          name: ${{ parameters.name }}
+          owner: ${{ parameters.owner }}
+          cost_center: ${{ parameters.cost_center }}
+          data_classification: ${{ parameters.data_classification }}
+    - id: publishLocal
+      name: Persist locally
+      action: platform:publishLocal
+      input:
+        name: ${{ parameters.name }}
+  output:
+    links:
+      - title: Generated service workspace
+        url: file://${{ steps.publishLocal.output.servicePath }}
+      - title: Open in catalog
+        icon: catalog
+        entityRef: ${{ steps.publishLocal.output.entityRef }}

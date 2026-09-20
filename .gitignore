@@ -1,4 +1,11 @@
 node_modules/
+generated/
+packages/backend/backstage-data/
+.local/
+dist-types/
+.backstage-dev.log
+backstage-data/
+.yarn/install-state.gz
 __pycache__/
 *.py[cod]
 .pytest_cache/
