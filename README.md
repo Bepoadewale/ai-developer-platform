@@ -57,6 +57,7 @@ Prerequisites: Docker Desktop, Node 22 or 24 (the Makefile selects Homebrew Node
 make install
 make bootstrap-local
 make smoke
+make status
 make demo-golden-path
 make demo-drift
 make demo-failure
@@ -66,6 +67,8 @@ make clean-local
 ```
 
 `make demo-golden-path` creates a Production API and AI Service through the live Scaffolder, waits for Catalog reconciliation, tests both generated services, builds and runs the Production API container, builds/serves TechDocs, and asserts scorecard readiness. `make demo-drift` removes a required readiness annotation temporarily and proves the scorecard blocks it with remediation. `make demo-failure` proves invalid template input is rejected before a workspace is created.
+
+`make status` is a read-only local snapshot: it verifies Backstage availability, template availability, generated workspaces, reconciled Catalog entities, scorecard outcomes for the two golden-path services, and the metrics endpoint. It does not create or mutate platform state.
 
 `make clean-local` deletes only this repository's generated services, SQLite state, local virtual environments, Backstage process, and explicitly named demo images/containers. It does not prune Docker or touch unrelated resources.
 
