@@ -1,4 +1,4 @@
-.PHONY: install bootstrap-local smoke status demo-golden-path demo-drift demo-failure e2e verify clean-local test lint typecheck
+.PHONY: install bootstrap-local smoke status demo-golden-path demo-drift demo-failure e2e verify clean-local test lint typecheck public-demo
 
 NODE24_BIN := $(shell if [ -x /opt/homebrew/opt/node@24/bin/node ]; then echo /opt/homebrew/opt/node@24/bin; fi)
 ifneq ($(NODE24_BIN),)
@@ -7,7 +7,7 @@ endif
 
 install:
 	corepack enable
-	yarn install --immutable
+	corepack yarn install --immutable
 	./scripts/install-python-tools.sh
 
 bootstrap-local: install
@@ -30,13 +30,13 @@ demo-failure:
 	./scripts/demo-failure.sh
 
 e2e:
-	yarn test:e2e --project=app
+	corepack yarn test:e2e --project=app
 
 test:
-	yarn test:all --runInBand
+	corepack yarn test:all --runInBand
 
 lint:
-	yarn lint:all
+	corepack yarn lint:all
 
 verify:
 	$(MAKE) lint
@@ -46,7 +46,10 @@ verify:
 	.local/tools-venv/bin/python -m ruff check tests
 
 typecheck:
-	yarn tsc:full
+	corepack yarn tsc:full
 
 clean-local:
 	./scripts/clean-local.sh
+
+public-demo:
+	./scripts/start-public-demo.sh

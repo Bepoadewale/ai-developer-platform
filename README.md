@@ -22,6 +22,10 @@ Status: **PORTFOLIO COMPLETE — LOCAL-FIRST SCOPE**. The primary path, clean-ro
 
 See [implementation status](docs/IMPLEMENTATION_STATUS.md) and [validation evidence](docs/VALIDATION.md) for exact boundaries.
 
+## Temporary public demo URL
+
+`make public-demo` bootstraps Backstage and prints a temporary Cloudflare Quick Tunnel URL for the local portal. It uses no Cloudflare account, named tunnel, or persistent credential; every URL changes and must never be committed. Treat the URL as public access to a disposable local demonstration, keep the command running while it is shared, and use `Ctrl-C` to stop only the tunnel. `make clean-local` removes project-owned local resources.
+
 ## The developer contract
 
 The portal lets a developer create either a **Production Web API** or an **AI Service** with a small, governed input set: name, owning team, system/cost context, and data classification where relevant. It generates a local repository with:
