@@ -1,4 +1,4 @@
-.PHONY: install bootstrap-local smoke status demo-golden-path demo-drift demo-failure e2e verify clean-local test lint typecheck
+.PHONY: install bootstrap-local smoke status demo-golden-path demo-drift demo-failure e2e verify clean-local test lint typecheck public-demo
 
 NODE24_BIN := $(shell if [ -x /opt/homebrew/opt/node@24/bin/node ]; then echo /opt/homebrew/opt/node@24/bin; fi)
 ifneq ($(NODE24_BIN),)
@@ -50,3 +50,6 @@ typecheck:
 
 clean-local:
 	./scripts/clean-local.sh
+
+public-demo:
+	./scripts/start-public-demo.sh
