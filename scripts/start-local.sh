@@ -19,6 +19,6 @@ if [[ "${node_major}" != "22" && "${node_major}" != "24" ]]; then
 fi
 
 cd "${repo_root}"
-nohup yarn start >"${log_file}" 2>&1 < /dev/null &
+nohup corepack yarn start >"${log_file}" 2>&1 < /dev/null &
 echo $! >"${pid_file}"
 echo "Started Backstage (pid $(cat "${pid_file}")); log: ${log_file}"

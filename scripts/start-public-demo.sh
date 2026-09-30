@@ -10,7 +10,11 @@ if ! command -v cloudflared >/dev/null; then command -v brew >/dev/null || { ech
 cd "$root"
 make bootstrap-local
 make smoke
-target=http://127.0.0.1:3000
+target=http://localhost:3000
+for _ in $(seq 1 90); do
+  if curl -fsS --max-time 2 "$target" >/dev/null; then break; fi
+  sleep 1
+done
 curl -fsS --max-time 10 "$target" >/dev/null
 cloudflared tunnel --url "$target" --protocol http2 >"$log" 2>&1 & tunnel_pid=$!
 for _ in $(seq 1 90); do public_url=$(grep -Eo 'https://[-a-z0-9]+\.trycloudflare\.com' "$log" | head -n 1 || true); [[ -n "${public_url:-}" ]] && break; sleep 1; done
